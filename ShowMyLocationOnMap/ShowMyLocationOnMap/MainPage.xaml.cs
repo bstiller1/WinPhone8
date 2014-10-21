@@ -33,9 +33,10 @@ namespace ShowMyLocationOnMap
             Geocoordinate myGeocoordinate = myGeoposition.Coordinate;
             GeoCoordinate myGeoCoordinate =
             CoordinateConverter.ConvertGeocoordinate(myGeocoordinate);
-            lats.Text = System.Convert.ToString(myGeocoordinate.Latitude);
-            longs.Text = System.Convert.ToString(myGeocoordinate.Longitude);
-            
+            String lats = System.Convert.ToString(myGeocoordinate.Latitude);
+            String longs = System.Convert.ToString(myGeocoordinate.Longitude);
+            System.Uri uri = new System.Uri("https://www.google.ca/maps/search/auto+repair/@"+lats+","+longs+",15z/data=!3m1!4b1");
+            webView.Source = uri;
            
         }
     }
